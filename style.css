@@ -28,7 +28,7 @@ body {
 }
 
 .dark-mode #top-bar-hack {
-  background-color: #000;
+  background-color: #000 !important;
 }
 
 
