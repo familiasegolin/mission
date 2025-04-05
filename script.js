@@ -1,33 +1,38 @@
-const toggleButton = document.getElementById('toggleButton');
-const icon = document.getElementById('icon');
-let isDarkMode = localStorage.getItem('dark-mode') === 'true'; // Verifica se o modo escuro está salvo no localStorage
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleButton = document.getElementById('toggleButton');
+  const icon = document.getElementById('icon');
+  const topBarHack = document.getElementById('top-bar-hack');
+  let isDarkMode = localStorage.getItem('dark-mode') === 'true'; // Verifica se o modo escuro está salvo no localStorage
 
-// Se o tema salvo for o modo escuro, aplica o modo escuro ao carregar a página
-if (isDarkMode) {
-  document.body.classList.add('dark-mode');
-} else {
-  document.body.classList.add('light-mode');
-}
+  // Se o tema salvo for o modo escuro, aplica o modo escuro ao carregar a página
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+    topBarHack.style.backgroundColor = '#000';  // Cor para o modo escuro
+  } else {
+    document.body.classList.add('light-mode');
+    topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
+  }
 
-toggleButton.addEventListener('click', () => {
-  // Alterna o estado do modo
-  isDarkMode = !isDarkMode;
-  
-  // Alterna as classes no body para mudar o tema
-  document.body.classList.toggle('dark-mode', isDarkMode);
-  document.body.classList.toggle('light-mode', !isDarkMode);
+  toggleButton.addEventListener('click', () => {
+    // Alterna o estado do modo
+    isDarkMode = !isDarkMode;
+
+    // Alterna as classes no body para mudar o tema
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    document.body.classList.toggle('light-mode', !isDarkMode);
 
     // Modificando a cor do #top-bar-hack diretamente no JavaScript
-    const topBarHack = document.getElementById('top-bar-hack');
     if (isDarkMode) {
       topBarHack.style.backgroundColor = '#000';  // Cor para o modo escuro
     } else {
       topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
     }
-  
-  // Salva a escolha do tema no localStorage
-  localStorage.setItem('dark-mode', isDarkMode);
+
+    // Salva a escolha do tema no localStorage
+    localStorage.setItem('dark-mode', isDarkMode);
+  });
 });
+
 
 window.onload = function () {
     const frase = document.getElementById("frase");
