@@ -28,7 +28,13 @@ body {
 }
 
 body.dark-mode #top-bar-hack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: env(safe-area-inset-top); /* para iPhones com notch */
   background-color: #000 !important;
+  z-index: 9999;
 }
 
 
