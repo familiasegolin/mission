@@ -76,7 +76,6 @@ footer {
 }
 
 .toggle-button {
-  background-color: #ccc;
   border: none;
   padding: 10px;
   border-radius: 50px;
@@ -84,17 +83,18 @@ footer {
   position: relative;
   width: 50px;
   height: 30px;
+  background-color: rgba(33, 33, 33, 0.2); /* mesma cor com transparência */
   transition: background-color 0.3s;
 }
 
 .icon {
+  opacity: 1; /*não está funcionando*/
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 5px;
   width: 20px;
   height: 20px;
-  background-color: #fff;
   border-radius: 50%;
   transition: left 0.3s;
 }
@@ -104,8 +104,8 @@ footer {
 }
 
 .dark-mode {
-  background-color: #333;
-  background-image: none;
+  background-image: linear-gradient(rgb(0, 0, 0),rgb(83, 82, 81)
+  );
   color: #fff;
 }
 
@@ -113,15 +113,12 @@ footer {
   background-color: #444;
 }
 
-.dark-mode .icon {
-  background-color: #333;
-}
-
 .sun-icon,
 .moon-icon {
   width: 20px;
   height: 20px;
   display: none;
+  filter: brightness(0) invert(1);
 }
 
 /* Modo escuro mostra o sol */
@@ -139,6 +136,5 @@ footer {
   transition: opacity 0.3s ease;
 }
 
-.sun-icon {
-  filter: brightness(0) invert(1);
-}
+
+
