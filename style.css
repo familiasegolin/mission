@@ -1,10 +1,9 @@
-
-body, html {
+body {
   margin: 0;
   padding: 0;
   height: 100vh;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: 'inter', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +13,8 @@ body, html {
     background-size: cover; /* Ajusta a imagem ao tamanho da tela */
     background-position: top center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição */
-    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, background-image 0.3s ease; /* Transição suave */
+
 }
 
 #top-bar-hack {
@@ -61,4 +61,73 @@ footer {
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
   font-family: 'Inter', sans-serif;
+}
+
+
+.container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.toggle-button {
+  background-color: #ccc;
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  transition: background-color 0.3s;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+
+.dark-mode .icon {
+  left: 25px;
+}
+
+.dark-mode {
+  background-color: #333;
+  background-image: none;
+  color: #fff;
+}
+
+.dark-mode .toggle-button {
+  background-color: #444;
+}
+
+.dark-mode .icon {
+  background-color: #333;
+}
+
+.sun-icon, .moon-icon {
+  display: none;
+}
+
+.dark-mode .sun-icon {
+  display: block;
+}
+
+.light-mode .moon-icon {
+  display: block;
+}
+
+.sun-icon:before {
+  content: "☀️";
+}
+
+.moon-icon:before {
+  content: "🌙";
 }
