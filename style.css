@@ -25,9 +25,7 @@ body, html {
   font-weight: 200;
   letter-spacing: 0.5px;
   text-align: center;
-  white-space: nowrap; /* Evita quebra de linha */
-  max-width: 90%; /* Limita a largura máxima da frase para evitar que ultrapasse as bordas da tela */
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites da tela */
+  
 }
 
 
@@ -39,6 +37,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px; /* Adiciona um pequeno preenchimento para garantir que o footer não sobreponha a frase */
 }
 
 .intro {
