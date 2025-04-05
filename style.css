@@ -27,6 +27,10 @@ body {
   z-index: 9999;
 }
 
+.dark-mode #top-bar-hack {
+  background-color: #000;
+}
+
 
 #frase {
   position: absolute;
