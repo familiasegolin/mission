@@ -16,6 +16,7 @@
 
 </head>
 <body>
+  <!--lembrar de colocar o top-bar em outras páginas-->
   <div id="top-bar-hack"></div>
   <div id="frase">Uma família normal vivendo o extraordinário de Deus.</div>
 
@@ -30,23 +31,6 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-
-  <script>
-    setTimeout(() => {
-      gsap.to("#frase", {
-        duration: 2,
-        top: "calc(100% - 50px)",
-        onComplete: () => {
-          // Após a animação, move o conteúdo para o footer
-          const frase = document.getElementById("frase");
-          const footerDiv = document.getElementById("footer-frase");
-          footerDiv.appendChild(frase);
-          frase.style.position = "static";
-          frase.style.transform = "none";
-        }
-      });
-    }, 3000);
-  </script>
   <script src="script.js"></script>
 </body>
 </html>

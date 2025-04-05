@@ -20,3 +20,26 @@ toggleButton.addEventListener('click', () => {
   // Salva a escolha do tema no localStorage
   localStorage.setItem('dark-mode', isDarkMode);
 });
+
+window.onload = function () {
+    const frase = document.getElementById("frase");
+    const footer = document.querySelector("footer");
+  
+    // Espera o fade-in terminar
+    setTimeout(() => {
+      // Calcula a posição vertical do footer
+      const footerRect = footer.getBoundingClientRect();
+      const fraseRect = frase.getBoundingClientRect();
+  
+      // Diferença de posição entre a frase e o centro do footer
+      const deltaY = footerRect.top + (footerRect.height / 2) - (fraseRect.top + fraseRect.height / 2);
+  
+      // Anima a descida da frase usando GSAP
+      gsap.to(frase, {
+        duration: 2,
+        y: deltaY,
+        ease: "power2.out"
+      });
+    }, 2000); // Espera o fade-in acabar
+  };
+  
