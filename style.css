@@ -25,6 +25,8 @@ body, html {
   font-weight: 200;
   letter-spacing: 0.5px;
   text-align: center;
+  max-width: 95vw; /* Limita a largura a 90% da largura da tela */
+  overflow: hidden; /* Garante que o conteúdo não transborde */
   
 }
 
