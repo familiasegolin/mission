@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Família Segolin</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Dentro da tag <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="frase">Uma família normal vivendo o extraordinário de Deus.</div>
+
+  <footer>
+    <div id="footer-frase"></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+  <script>
+    setTimeout(() => {
+      gsap.to("#frase", {
+        duration: 2,
+        top: "calc(100% - 40px)",
+        onComplete: () => {
+          // Após a animação, move o conteúdo para o footer
+          const frase = document.getElementById("frase");
+          const footerDiv = document.getElementById("footer-frase");
+          footerDiv.appendChild(frase);
+          frase.style.position = "static";
+          frase.style.transform = "none";
+        }
+      });
+    }, 3000);
+  </script>
+</body>
+</html>
