@@ -27,7 +27,7 @@ body, html {
   text-align: center;
   max-width: 90vw; /* Limita a largura a 90% da largura da tela */
   overflow: hidden; /* Garante que o conteúdo não transborde */
-  white-space: nowrap; /* Evita quebras de linha */s
+  white-space: nowrap; /* Evita quebras de linha */
   
 }
 
