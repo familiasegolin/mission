@@ -9,7 +9,8 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("./assets/bgindexday.png");
+  background-image: linear-gradient(rgba(247, 196, 148, 1),rgba(255, 241, 222, 1)
+  );
     background-size: cover; /* Ajusta a imagem ao tamanho da tela */
     background-position: top center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição */
