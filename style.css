@@ -23,12 +23,8 @@ body {
   left: 0;
   width: 100%;
   height: env(safe-area-inset-top); /* para iPhones com notch */
-  background-color: #eec49b; /* ou a cor que quiser */
+  /* background-color: #eec49b; /* ou a cor que quiser */
   z-index: 9999;
-}
-
-body.dark-mode #top-bar-hack {
-  background-color: #000 !important; /*não funciona*/
 }
 
 
