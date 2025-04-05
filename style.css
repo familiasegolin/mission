@@ -16,6 +16,17 @@ body, html {
     font-family: 'Inter', sans-serif;
 }
 
+#top-bar-hack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: env(safe-area-inset-top); /* para iPhones com notch */
+  background-color: #eec49b; /* ou a cor que quiser */
+  z-index: 9999;
+}
+
+
 #frase {
   position: absolute;
   top: 50%;
