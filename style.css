@@ -37,7 +37,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px; /* Adiciona um pequeno preenchimento para garantir que o footer não sobreponha a frase */
+  padding: 0; /* Adiciona um pequeno preenchimento para garantir que o footer não sobreponha a frase */
+  margin: 0;
 }
 
 .intro {
