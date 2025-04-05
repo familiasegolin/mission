@@ -27,15 +27,10 @@ body {
   z-index: 9999;
 }
 
-.dark-mode #top-bar-hack {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: env(safe-area-inset-top); /* para iPhones com notch */
-  background-color: #000000; /* ou a cor que quiser */
-  z-index: 9999;
+body.dark-mode #top-bar-hack {
+  background-color: #000;
 }
+
 
 
 #frase {
