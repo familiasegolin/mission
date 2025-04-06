@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('light-mode', !isDarkMode);
 
     // Modificando a cor do #top-bar-hack diretamente no JavaScript
-    if (isDarkMode) {
-      topBarHack.style.backgroundColor = '#000';  // Cor para o modo escuro
-    } else {
-      topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
-    }
+    //if (isDarkMode) {
+     // topBarHack.style.backgroundColor = '#000';  // Cor para o modo escuro
+    //} else {
+     // topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
+    //}
 
     // Salva a escolha do tema no localStorage
     localStorage.setItem('dark-mode', isDarkMode);

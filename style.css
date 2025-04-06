@@ -27,41 +27,6 @@ body {
   z-index: 9999;
 }
 
-@keyframes tremer {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }  /* Aumentando a amplitude */
-  50% { transform: translateX(5px); }   /* Aumentando a amplitude */
-  75% { transform: translateX(-5px); }  /* Aumentando a amplitude */
-}
-
-#tremer {
-  animation: tremer 0.3s infinite;  /* Tempo mais rápido para um efeito mais perceptível */
-  transform-origin: center;
-}
-
-
-.icone-telefone {
-  width: 216px;  /* Tamanho fixo para telas maiores */
-  height: 384px;
-  margin: 20px auto;
-  transition: all 0.3s ease;
-}
-
-/* Ajuste para telas menores */
-@media (max-width: 768px) {
-  .icone-telefone {
-    width: 50vw;  /* 50% da largura da tela */
-    height: auto;  /* Mantém a altura proporcional */
-    position: absolute;
-    right: 0;  /* Alinha ao lado direito */
-    top: 50%;  /* Posiciona o telefone no meio da tela no eixo Y */
-    transform: translateY(-50%);  /* Ajusta a posição para centralizar no eixo Y */
-
-  }
-}
-
-
-
 #frase {
   position: absolute;
   top: 50%;
@@ -75,7 +40,7 @@ body {
   overflow: hidden; /* Garante que o conteúdo não transborde */
   white-space: nowrap; /* Evita quebras de linha */
   opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
@@ -153,6 +118,7 @@ footer {
   height: 20px;
   display: none;
   filter: brightness(0) invert(1);
+  transition: opacity 0.3s ease;
 }
 
 /* Modo escuro mostra o sol */
@@ -164,11 +130,5 @@ footer {
 .light-mode .moon-icon {
   display: block;
 }
-
-.sun-icon,
-.moon-icon {
-  transition: opacity 0.3s ease;
-}
-
 
 
