@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.getElementById('toggleButton');
   const icon = document.getElementById('icon');
-  const topBarHack = document.getElementById('top-bar-hack');
+  //const topBarHack = document.getElementById('top-bar-hack');
   let isDarkMode = localStorage.getItem('dark-mode') === 'true'; // Verifica se o modo escuro está salvo no localStorage
 
   // Se o tema salvo for o modo escuro, aplica o modo escuro ao carregar a página
