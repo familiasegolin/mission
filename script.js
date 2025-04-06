@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Se o tema salvo for o modo escuro, aplica o modo escuro ao carregar a página
   if (isDarkMode) {
     document.body.classList.add('dark-mode');
-    topBarHack.style.backgroundColor = '#000';  // Cor para o modo escuro
+    topBarHack.style.backgroundColor = '#242323';  // Cor para o modo escuro
   } else {
     document.body.classList.add('light-mode');
-    topBarHack.style.backgroundColor = '#ff0000';  // Cor para o modo claro
+    topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
   }
 
   toggleButton.addEventListener('click', () => {
@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modificando a cor do #top-bar-hack diretamente no JavaScript
     if (isDarkMode) {
-      topBarHack.style.backgroundColor = '#000';  // Cor para o modo escuro
+      topBarHack.style.backgroundColor = '#242323';  // Cor para o modo escuro
     } else {
-      topBarHack.style.backgroundColor = '#ff0000';  // Cor para o modo claro
+      topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
     }
 
     // Salva a escolha do tema no localStorage
@@ -49,7 +49,7 @@ window.onload = function () {
   
       // Anima a descida da frase usando GSAP
       gsap.to(frase, {
-        duration: 2,
+        duration: 1,
         y: deltaY,
         ease: "power2.out"
       });
