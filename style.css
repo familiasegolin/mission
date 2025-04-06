@@ -8,8 +8,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(rgba(247, 196, 148, 1),rgba(255, 241, 222, 1)
-  );
+  background-color: #eec49b;
     background-size: cover; /* Ajusta a imagem ao tamanho da tela */
     background-position: top center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição */
@@ -23,7 +22,6 @@ body {
   left: 0;
   width: 100%;
   height: env(safe-area-inset-top); /* para iPhones com notch */
-  /* background-color: #eec49b; /* ou a cor que quiser */
   z-index: 9999;
 }
 
@@ -103,8 +101,7 @@ footer {
 }
 
 .dark-mode {
-  background-image: linear-gradient(rgb(0, 0, 0),rgb(83, 82, 81)
-  );
+  background-color: #242323;
   color: #fff;
 }
 
