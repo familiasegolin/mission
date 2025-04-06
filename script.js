@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isDarkMode) {
       topBarHack.style.backgroundColor = '#000';  // Cor para o modo escuro
     } else {
-      topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
+      topBarHack.style.backgroundColor = '#ff0000';  // Cor para o modo claro
     }
 
     // Salva a escolha do tema no localStorage
