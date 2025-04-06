@@ -23,7 +23,13 @@ body {
   width: 100%;
   height: env(safe-area-inset-top); /* para iPhones com notch */
   z-index: 9999;
-}
+    background-color: #eec49b;
+  }
+  
+  .dark-mode #top-bar-hack {
+    background-color: #242323;
+  }
+  
 
 #frase {
   position: absolute;

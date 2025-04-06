@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Se o tema salvo for o modo escuro, aplica o modo escuro ao carregar a página
   if (isDarkMode) {
     document.body.classList.add('dark-mode');
-    topBarHack.style.backgroundColor = '#242323';  // Cor para o modo escuro
+    
   } else {
     document.body.classList.add('light-mode');
-    topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
+    
   }
 
   toggleButton.addEventListener('click', () => {
@@ -21,12 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('dark-mode', isDarkMode);
     document.body.classList.toggle('light-mode', !isDarkMode);
 
-    // Modificando a cor do #top-bar-hack diretamente no JavaScript
-    if (isDarkMode) {
-      topBarHack.style.backgroundColor = '#242323';  // Cor para o modo escuro
-    } else {
-      topBarHack.style.backgroundColor = '#eec49b';  // Cor para o modo claro
-    }
+
 
     // Salva a escolha do tema no localStorage
     localStorage.setItem('dark-mode', isDarkMode);
