@@ -26,6 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("fullscreenMenu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  menu.classList.toggle("active");
+});
 
 window.onload = function () {
     const frase = document.getElementById("frase");

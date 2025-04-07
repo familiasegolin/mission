@@ -135,3 +135,92 @@ footer {
 }
 
 
+/* Botão hambúrguer */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 15px;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  height: 2px;
+  background: #000;
+  transition: 0.3s ease;
+}
+
+/* Modo escuro */
+body.dark-mode .hamburger span {
+  background: #fff;
+}
+
+/* Transformar em X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu full screen */
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #E9967A;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+body.dark-mode .fullscreen-menu {
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+}
+
+body.dark-mode .fullscreen-menu a {
+  color: white;
+}
+
+
+.fullscreen-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.fullscreen-menu li {
+  margin: 20px 0;
+}
+
+.fullscreen-menu a {
+  color: black;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.fullscreen-menu a:hover {
+  color: #E9967A;
+}
+
+/* Quando ativo */
+.fullscreen-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+}
