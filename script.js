@@ -35,6 +35,23 @@ hamburger.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.pathname; // Pega o caminho da URL atual
+  const menuItems = document.querySelectorAll('.fullscreen-menu a'); // Seleciona todos os links do menu
+  
+  menuItems.forEach(item => {
+    const itemHref = item.getAttribute('href'); // Pega o href do item do menu
+    // Verifica se o href corresponde à URL atual (levando em consideração o nome do arquivo)
+    if (currentPath.includes(itemHref)) {
+      item.classList.add('disabled'); // Adiciona a classe 'disabled' ao item correspondente
+    } else {
+      item.classList.remove('disabled'); // Garante que outros itens não tenham a classe 'disabled'
+    }
+  });
+});
+
+
+
 //
 window.onload = function () {
     const frase = document.getElementById("frase");

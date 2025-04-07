@@ -196,7 +196,7 @@ body.dark-mode .hamburger span {
 }
 
 .fullscreen-menu a:hover {
-  color: #9d533a;
+  color: #632d1b;
 }
 
 body.dark-mode .fullscreen-menu {
@@ -209,7 +209,7 @@ body.dark-mode .fullscreen-menu a {
 }
 
 body.dark-mode .fullscreen-menu a:hover {
-  color: #9d533a;
+  color: #632d1b;
 }
 
 
@@ -236,4 +236,14 @@ body.dark-mode .fullscreen-menu a:hover {
   pointer-events: auto;
   transform: translateY(0);  /* Menu agora vai se mover de cima para baixo */
 
+}
+.fullscreen-menu a.disabled {
+  pointer-events: none; /* Desabilita o clique */
+  color: #9d533a; /* Altera a cor para indicar que o item está desabilitado */
+  cursor: not-allowed; /* Altera o cursor para indicar que não é possível clicar */
+}
+
+/* Caso esteja no modo escuro */
+body.dark-mode .fullscreen-menu a.disabled {
+  color: #7f7f7f; /* Cor mais suave no modo escuro */
 }
