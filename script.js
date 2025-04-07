@@ -26,6 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  // Espera 3 segundos antes de começar o fade-in
+  setTimeout(function() {
+    let content = document.getElementById("content");
+    
+    let opacity = 0;
+    content.style.opacity = opacity;
+
+    // Função para animar o fade-in
+    function fadeIn() {
+      if (opacity < 1) {
+        opacity += 0.05; // Aumenta a opacidade
+        content.style.opacity = opacity;
+        requestAnimationFrame(fadeIn); // Chama a função novamente até alcançar opacidade 1
+      }
+    }
+
+    fadeIn(); // Inicia a animação
+  }, 3000); // 3000 milissegundos
+});
+
+
 //menu hamburguer
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("fullscreenMenu");

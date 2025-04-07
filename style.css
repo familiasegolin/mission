@@ -71,6 +71,11 @@ footer {
   font-family: 'Inter', sans-serif;
 }
 
+#content {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
 
 .container {
   position: absolute;

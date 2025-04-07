@@ -11,38 +11,43 @@
 <!-- iOS: permite que o site rode em tela cheia se for salvo na tela inicial -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-
 </head>
+
 <body>
-  <!--lembrar de colocar o top-bar em outras páginas-->
+  <!--top-bar-->
   <div id="top-bar-hack"></div>
+
+  <!--frase do footer-->
   <div id="frase">Uma família normal vivendo o extraordinário de Deus.</div>
-<header>
-   <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-  </div>
-  
-  <nav class="fullscreen-menu" id="fullscreenMenu">
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="/">Missão</a></li>
-      <li><a href="/">Contato</a></li>
-    </ul>
-  </nav>
 
-</header>
- 
-  <div class="container">
-    <button class="toggle-button" id="toggleButton">
-      <span class="icon" id="icon">
-        <img src="assets/sun.svg" class="sun-icon" alt="Sol">
-        <img src="assets/moon.svg" class="moon-icon" alt="Lua">
-      </span>
-    </button>
+  <!--conteúdo com delay-->
+  <div id="content">
+  <!--cabeçalho-->
+    <header>
+      <!-- menu hamburguer-->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+      </div>
+      <!-- conteúdo interno do menu -->
+      <nav class="fullscreen-menu" id="fullscreenMenu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="/">Missão</a></li>
+          <li><a href="/">Contato</a></li>
+        </ul>
+      </nav>
+      <!-- modo claro/escuro -->
+      <div class="container">
+        <button class="toggle-button" id="toggleButton">
+          <span class="icon" id="icon">
+            <img src="assets/sun.svg" class="sun-icon" alt="Sol">
+            <img src="assets/moon.svg" class="moon-icon" alt="Lua">
+          </span>
+        </button>
+      </div>
+    </header>
   </div>
-
 
   <footer>
     <div id="footer-frase"></div>
