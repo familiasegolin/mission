@@ -195,6 +195,10 @@ body.dark-mode .hamburger span {
 
 }
 
+.fullscreen-menu a:hover {
+  color: #9d533a;
+}
+
 body.dark-mode .fullscreen-menu {
   background: rgba(0, 0, 0, 0.95);
   color: white;
@@ -202,6 +206,10 @@ body.dark-mode .fullscreen-menu {
 
 body.dark-mode .fullscreen-menu a {
   color: white;
+}
+
+body.dark-mode .fullscreen-menu a:hover {
+  color: #9d533a;
 }
 
 
@@ -220,10 +228,6 @@ body.dark-mode .fullscreen-menu a {
   font-size: 1.5rem;
   text-decoration: none;
   transition: color 0.2s;
-}
-
-.fullscreen-menu a:hover {
-  color: #E9967A;
 }
 
 /* Quando ativo */
