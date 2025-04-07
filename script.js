@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+//menu hamburguer
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("fullscreenMenu");
 
@@ -34,6 +35,7 @@ hamburger.addEventListener("click", () => {
   menu.classList.toggle("active");
 });
 
+//
 window.onload = function () {
     const frase = document.getElementById("frase");
     const footer = document.querySelector("footer");

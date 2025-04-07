@@ -138,6 +138,7 @@ filter:  invert(1);
   display: block;
 }
 
+/* MENU */
 
 /* Botão hambúrguer */
 .hamburger {
@@ -189,7 +190,9 @@ body.dark-mode .hamburger span {
   z-index: 10000;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transform: translateY(-100%);  /* Menu começa fora da tela, em cima */
+  transition: transform 0.5s ease, opacity 0.3s ease; /* Transição suave */
+
 }
 
 body.dark-mode .fullscreen-menu {
@@ -227,4 +230,6 @@ body.dark-mode .fullscreen-menu a {
 .fullscreen-menu.active {
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0);  /* Menu agora vai se mover de cima para baixo */
+
 }
