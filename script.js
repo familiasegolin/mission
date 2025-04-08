@@ -47,8 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 3000); // 3000 milissegundos
 });
 
-
-
 //menu hamburguer
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("fullscreenMenu");
