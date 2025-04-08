@@ -253,6 +253,10 @@ body.dark-mode .fullscreen-menu a.disabled {
   color: #7f7f7f; /* Cor mais suave no modo escuro */
 }
 
+.fechadura{
+  margin-top: -100px;
+}
+
 body.dark-mode .fechadura {
   filter: invert(1);
 }
