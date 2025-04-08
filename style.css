@@ -257,6 +257,6 @@ body.dark-mode .fullscreen-menu a.disabled {
   margin-top: -80%;
 }
 
-body.dark-mode .fechadura, body.dark-mode {
+body.dark-mode .fechadura {
   filter: invert(1);
 }
