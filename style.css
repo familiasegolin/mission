@@ -265,6 +265,13 @@ body.dark-mode .fullscreen-menu a.disabled {
 
 }
 
+/* Ajuste para telas maiores */
+@media (min-width: 1024px) { 
+  .fechadura {
+    top: 50%; /* Reduz a altura para notebooks */
+  }
+}
+
 body.dark-mode .fechadura, body.dark-mode .logo {
   filter: invert(1);
 }
