@@ -55,12 +55,13 @@ body {
 
 footer {
   position: fixed;
-  bottom: 0;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   text-align: center;
   padding: 20px;
+  padding-bottom: env(safe-area-inset-bottom, 20px); /* para iPhones com notch */
 }
 
 .intro {
