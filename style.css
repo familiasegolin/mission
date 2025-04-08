@@ -257,7 +257,7 @@ body.dark-mode .fullscreen-menu a.disabled {
 
 .fechadura {
   position: absolute; /* Permite posicionamento mais controlado */
-  top: 40%; /* Move para o meio da tela */
+  top: 35%; /* Move para o meio da tela */
   left: 50%; /* Move para o meio da tela */
   transform: translate(-50%, -50%); /* Centraliza corretamente */
   max-width: 300px; /* Ajusta o tamanho */
