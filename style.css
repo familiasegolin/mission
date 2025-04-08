@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  position: relative;
   overflow: hidden;
   font-family: 'inter', sans-serif;
   display: flex;
@@ -253,10 +254,31 @@ body.dark-mode .fullscreen-menu a.disabled {
   color: #7f7f7f; /* Cor mais suave no modo escuro */
 }
 
-.fechadura{
-  margin-top: -80%;
+.fechadura {
+  position: absolute; /* Permite posicionamento mais controlado */
+  top: 50%; /* Move para o meio da tela */
+  left: 50%; /* Move para o meio da tela */
+  transform: translate(-50%, -50%); /* Centraliza corretamente */
+  max-width: 300px; /* Ajusta o tamanho */
+  height: auto;
 }
 
-body.dark-mode .fechadura {
+body.dark-mode .fechadura, body.dark-mode .logo {
   filter: invert(1);
+}
+
+header {
+  position: absolute;
+  top: 0%; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  max-width: 30%;
+  height: auto;
+  width: 200px;
+  margin: 0 auto;
 }
