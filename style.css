@@ -30,6 +30,13 @@ body {
     background-color: #242323;
   }
   
+  .mensagem{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 
 #frase {
   position: absolute;
@@ -269,7 +276,7 @@ body.dark-mode .fullscreen-menu a.disabled {
 /* Ajuste para telas maiores */
 @media (min-width: 1024px) { 
   .fechadura {
-    top: 270%; /* Reduz a altura para notebooks */
+    top: 350%; /* Reduz a altura para notebooks */
   }
 }
 
