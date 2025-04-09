@@ -267,10 +267,10 @@ body.dark-mode .fullscreen-menu a.disabled {
 /* Ajuste para telas maiores */
 @media (min-width: 1024px) { 
   .fechadura {
-    top: 63%; /* Reduz a altura para notebooks */
+    top: 60%; /* Reduz a altura para notebooks */
   }
-  .mensagem {
-    top:30%;
+  #mensagem {
+    top: 30%;
   }
 }
 
