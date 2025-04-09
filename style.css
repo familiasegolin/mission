@@ -292,6 +292,13 @@ header {
   text-align: center;
 }
 
+.versiculo{
+  rotate: 270deg;
+  width: 60%;
+  margin-right: 20px;
+  margin-top: 60%;
+}
+
 .logo {
   max-width: 30%;
   height: auto;
