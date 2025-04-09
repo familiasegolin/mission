@@ -29,14 +29,6 @@ body {
   .dark-mode #top-bar-hack {
     background-color: #242323;
   }
-  
-  #mensagem{
-    position: fixed;
-    top: 200%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
 
 #frase {
   position: absolute;
@@ -269,13 +261,16 @@ body.dark-mode .fullscreen-menu a.disabled {
   max-width: 300px; /* Ajusta o tamanho */
   height: auto;
   z-index: 0;
-  top: 500%;
+  top: 56%;
 }
 
 /* Ajuste para telas maiores */
 @media (min-width: 1024px) { 
   .fechadura {
-    top: 350%; /* Reduz a altura para notebooks */
+    top: 63%; /* Reduz a altura para notebooks */
+  }
+  .mensagem {
+    top:30%;
   }
 }
 
@@ -290,13 +285,7 @@ header {
   transform: translateX(-50%);
   width: 100%;
   text-align: center;
-}
-
-.versiculo{
-  rotate: 270deg;
-  width: 60%;
-  margin-right: 20px;
-  margin-top: 60%;
+  z-index: 1000; /* Coloca o cabeçalho acima de outros elementos */
 }
 
 .logo {
@@ -305,4 +294,14 @@ header {
   width: 200px;
   margin: 0 auto;
   margin-top: 3%;
+}
+
+#mensagem{
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  width: 80%;
+  max-width: 300px;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
