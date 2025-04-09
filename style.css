@@ -194,7 +194,7 @@ body.dark-mode .hamburger span {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 10000;
+  z-index: 10000; /* Acima do botão de menu */
   opacity: 0;
   pointer-events: none;
   transform: translateY(-100%);  /* Menu começa fora da tela, em cima */
@@ -262,7 +262,7 @@ body.dark-mode .fullscreen-menu a.disabled {
   transform: translate(-50%, -50%); /* Centraliza corretamente */
   max-width: 300px; /* Ajusta o tamanho */
   height: auto;
-
+  z-index: 0;
 }
 
 /* Ajuste para telas maiores */
