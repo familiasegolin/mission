@@ -302,9 +302,8 @@ header {
   margin: 5%;
   text-align: center;
   padding: 5%;
-  font-family: 'inter', 'sans-serif';
   font-size: 0.8rem;
-  transform: translatey(-100%);
+  transform: translatey(-110%);
 }
 
 /* Ajuste para telas maiores */
