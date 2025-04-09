@@ -261,7 +261,7 @@ body.dark-mode .fullscreen-menu a.disabled {
   max-width: 300px; /* Ajusta o tamanho */
   height: auto;
   z-index: 0;
-  top: 60%;
+  top: 55%;
 }
 
 body.dark-mode .fechadura, body.dark-mode .logo, body.dark-mode #versiculo {
