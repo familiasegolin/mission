@@ -261,7 +261,7 @@ body.dark-mode .fullscreen-menu a.disabled {
   max-width: 300px; /* Ajusta o tamanho */
   height: auto;
   z-index: 0;
-  top: 55%;
+  top: 50%;
 }
 
 body.dark-mode .fechadura, body.dark-mode .logo, body.dark-mode #versiculo {
@@ -288,7 +288,7 @@ header {
 
 #versiculo{
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 0%;
   width: 80%;
   max-width: 300px;
@@ -303,7 +303,7 @@ header {
   text-align: center;
   padding: 5%;
   font-size: 0.8rem;
-  transform: translatey(-120%);
+  transform: translatey(-130%);
 }
 
 /* Ajuste para telas maiores */
