@@ -263,6 +263,7 @@ body.dark-mode .fullscreen-menu a.disabled {
   max-width: 300px; /* Ajusta o tamanho */
   height: auto;
   z-index: 0;
+  margin-top: 20%;
 }
 
 /* Ajuste para telas maiores */
