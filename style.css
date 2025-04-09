@@ -261,11 +261,7 @@ body.dark-mode .fullscreen-menu a.disabled {
   max-width: 300px; /* Ajusta o tamanho */
   height: auto;
   z-index: 0;
-  top: 50%;
-}
-
-body.dark-mode .fechadura, body.dark-mode .logo, body.dark-mode #versiculo {
-  filter: invert(1);
+  top: 52%;
 }
 
 header {
@@ -286,10 +282,10 @@ header {
   margin-top: 3%;
 }
 
-#versiculo{
+.versiculo{
   position: absolute;
   top: 25%;
-  left: 0%;
+  left: 10%;
   width: 80%;
   max-width: 300px;
   transform: translate(-50%, -50%);
@@ -312,7 +308,7 @@ header {
     top: 47%; /* Reduz a altura para notebooks */
     left: 20%;
   }
-  #versiculo {
+  .versiculo {
     top: 20%; /* Reduz a altura para notebooks */
     left: 10%;
   }
@@ -357,4 +353,8 @@ header {
   body.dark-mode .fullscreen-menu {
     background: rgba(0, 0, 0, 0.95);
   }
+}
+
+body.dark-mode .fechadura, body.dark-mode .logo, body.dark-mode .versiculo {
+  filter: invert(1);
 }
