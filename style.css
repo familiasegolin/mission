@@ -14,7 +14,6 @@ body {
     background-position: top center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição */
     transition: background-color 0.3s ease, background-image 0.3s ease; /* Transição suave */
-
 }
 
 #top-bar-hack {
@@ -199,6 +198,7 @@ body.dark-mode .hamburger span {
   pointer-events: none;
   transform: translateY(-100%);  /* Menu começa fora da tela, em cima */
   transition: transform 0.5s ease, opacity 0.3s ease; /* Transição suave */
+  font-family: monospace;
 
 }
 
