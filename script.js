@@ -1,98 +1,234 @@
+
+
+function transitionBoxes() {
+    const boxes = Array.from({ length: 11 }, (_, i) => document.querySelector(`#box-${i}`));
+    const translateYs = Array(boxes.length).fill(0);
+    const opacities = [1, 0.5, 0.4, 0.3, 0.2, 0.15, 0.1, 0.05, 0.01, 0];
+    let currentIndex = 0;
+
+    function animateNext() {
+        if (currentIndex < boxes.length - 1) {
+
+            // Troca os jesuss quando estiver indo de box-5 para box-6
+            if (currentIndex === 5) {
+                const jesus0 = document.getElementById('jesus-0');
+                const jesus1 = document.getElementById('jesus-1');
+
+                jesus0.style.display = 'none';
+                jesus1.style.display = 'inline-flex';
+            }
+
+            const nextBox = boxes[currentIndex + 1];
+
+            // Atualiza todas as boxes anteriores (inclusive a atual)
+            for (let i = 0; i <= currentIndex; i++) {
+                translateYs[i] -= 24;
+
+                boxes[i].style.transition = 'transform 1s ease, opacity 1s ease';
+                boxes[i].style.transform = `translateY(${translateYs[i]}px)`;
+
+                const distanceFromCurrent = currentIndex - i + 1;
+                const newOpacity = opacities[distanceFromCurrent] ?? 0;
+
+                boxes[i].style.opacity = newOpacity.toString();
+
+                if (newOpacity <= 0.01) {
+                    boxes[i].classList.remove('visible');
+                    boxes[i].classList.add('hidden');
+                }
+            }
+
+            // Prepara a nova box
+            nextBox.style.transition = 'transform 1s ease, opacity 1s ease';
+            nextBox.style.transform = 'translateY(10px)';
+            nextBox.style.opacity = '0';
+            nextBox.classList.remove('hidden');
+            nextBox.classList.add('visible');
+
+            setTimeout(() => {
+                nextBox.style.transform = 'translateY(0px)';
+                nextBox.style.opacity = '1';
+            }, 0);
+
+            boxes[currentIndex].addEventListener('transitionend', function handler() {
+                boxes[currentIndex].removeEventListener('transitionend', handler);
+                currentIndex++;
+                animateNext();
+            });
+        } else {
+            // Após a última box, faz tudo desaparecer após 1 segundos
+            setTimeout(() => {
+                // Faz todas as boxes desaparecerem com fade
+                boxes.forEach(box => {
+                    box.style.transition = 'opacity 1s ease'; // Adiciona o tempo de transição de opacidade
+                    box.style.opacity = '0';
+                });
+
+                const jesus0 = document.getElementById('jesus-0');
+                const jesus1 = document.getElementById('jesus-1');
+
+                // Adiciona o tempo de transição de opacidade no jesus
+                jesus0.style.transition = 'opacity 1s ease';
+                jesus1.style.transition = 'opacity 1s ease';
+
+                jesus0.style.opacity = '0';
+                jesus1.style.opacity = '0';
+            }, 1000); // Espera 1 segundo (tempo total de animação + 1 segundo extra)
+        }
+    }
+
+    animateNext();
+}
+
+transitionBoxes();
+
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleButton = document.getElementById('toggleButton');
-  let isDarkMode = localStorage.getItem('dark-mode') === 'true'; // Verifica se o modo escuro está salvo no localStorage
-
-  // Se o tema salvo for o modo escuro, aplica o modo escuro ao carregar a página
-  if (isDarkMode) {
-    document.body.classList.add('dark-mode');
-    
-  } else {
-    document.body.classList.add('light-mode');
-    
-  }
-
-  toggleButton.addEventListener('click', () => {
-    // Alterna o estado do modo
-    isDarkMode = !isDarkMode;
-
-    // Alterna as classes no body para mudar o tema
-    document.body.classList.toggle('dark-mode', isDarkMode);
-    document.body.classList.toggle('light-mode', !isDarkMode);
-
-
-
-    // Salva a escolha do tema no localStorage
-    localStorage.setItem('dark-mode', isDarkMode);
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Espera 3 segundos antes de começar o fade-in
-  setTimeout(function() {
-    let content = document.getElementById("content");
-    
-    let opacity = 0;
-    content.style.opacity = opacity;
-
-    // Função para animar o fade-in
-    function fadeIn() {
-      if (opacity < 1) {
-        opacity += 0.05; // Aumenta a opacidade
-        content.style.opacity = opacity;
-        requestAnimationFrame(fadeIn); // Chama a função novamente até alcançar opacidade 1
-      }
-    }
-
-    fadeIn(); // Inicia a animação
-  }, 3000); // 3000 milissegundos
-});
-
-//menu hamburguer
-const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("fullscreenMenu");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  menu.classList.toggle("active");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPath = window.location.pathname; // Pega o caminho da URL atual
-  const menuItems = document.querySelectorAll('.fullscreen-menu a'); // Seleciona todos os links do menu
+    const toggleButton = document.getElementById('toggleButton');
+    let isDarkMode = localStorage.getItem('dark-mode') === 'true'; // Verifica se o modo escuro está salvo no localStorage
   
-  menuItems.forEach(item => {
-    const itemHref = item.getAttribute('href'); // Pega o href do item do menu
-    // Verifica se o href corresponde à URL atual (levando em consideração o nome do arquivo)
-    if (currentPath.includes(itemHref)) {
-      item.classList.add('disabled'); // Adiciona a classe 'disabled' ao item correspondente
+    // Se o tema salvo for o modo escuro, aplica o modo escuro ao carregar a página
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      
     } else {
-      item.classList.remove('disabled'); // Garante que outros itens não tenham a classe 'disabled'
+      document.body.classList.add('light-mode');
+      
+    }
+  
+  
+    toggleButton.addEventListener('click', () => {
+      // Alterna o estado do modo
+      isDarkMode = !isDarkMode;
+  
+      // Alterna as classes no body para mudar o tema
+      document.body.classList.toggle('dark-mode', isDarkMode);
+      document.body.classList.toggle('light-mode', !isDarkMode);
+  
+  
+  
+      // Salva a escolha do tema no localStorage
+      localStorage.setItem('dark-mode', isDarkMode);
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    // Espera 3 segundos antes de começar o fade-in
+    setTimeout(function() {
+      let content = document.getElementById("content");
+      
+      let opacity = 0;
+      content.style.opacity = opacity;
+  
+      // Função para animar o fade-in
+      function fadeIn() {
+        if (opacity < 1) {
+          opacity += 0.05; // Aumenta a opacidade
+          content.style.opacity = opacity;
+          requestAnimationFrame(fadeIn); // Chama a função novamente até alcançar opacidade 1
+        }
+      }
+  
+      fadeIn(); // Inicia a animação
+    }, 11000); // 11000 milissegundos
+  });
+  
+  const hamburger = document.getElementById("hamburger");
+  const menu = document.getElementById("fullscreenMenu");
+  const circle = document.getElementById("circle");
+  const circle2 = document.getElementById("circle2");
+  
+  let menuOpen = false;
+  
+  hamburger.addEventListener("click", () => {
+    menuOpen = !menuOpen;
+  
+    if (menuOpen) {
+      hamburger.classList.add("active");
+      circle.style.opacity = "0";
+      circle2.classList.add("active");
+  
+      // Espera a animação do círculo antes de mostrar o menu
+      setTimeout(() => {
+        menu.classList.add("active");
+      }, 400); // mesmo tempo da transição do círculo
+    } else {
+      hamburger.classList.remove("active");
+  
+      // Esconde o menu antes de esconder o círculo
+      menu.classList.remove("active");
+  
+      circle2.classList.remove("active");
+  
+      setTimeout(() => {
+        circle.style.opacity = "1";
+      }, 600);
     }
   });
-});
-
-
-
-//
-window.onload = function () {
-    const frase = document.getElementById("frase");
-    const footer = document.querySelector("footer");
   
-    // Espera o fade-in terminar
-    setTimeout(() => {
-      // Calcula a posição vertical do footer
-      const footerRect = footer.getBoundingClientRect();
-      const fraseRect = frase.getBoundingClientRect();
+  const svgs = [
+    'assets/carrossel/sol.svg',
+    'assets/carrossel/pastor.svg',
+    'assets/carrossel/porta.svg',
+    'assets/carrossel/pedra_angular.svg',
+    'assets/carrossel/videira.svg',
+    'assets/carrossel/água.svg',
+    'assets/carrossel/estrela.svg',
+    'assets/carrossel/raiz.svg',
+    'assets/carrossel/caminho.svg',
+    'assets/carrossel/pão.svg',
+    // coloque os caminhos dos seus SVGs aqui
+  ];
   
-      // Diferença de posição entre a frase e o centro do footer
-      const deltaY = footerRect.top + (footerRect.height / 2) - (fraseRect.top + fraseRect.height / 2);
+  let currentIndex = 0;
+  const container = document.getElementById('svg-container');
   
-      // Anima a descida da frase usando GSAP
-      gsap.to(frase, {
-        duration: 1,
-        y: deltaY,
-        ease: "power2.out"
+  function loadSvg(index) {
+    fetch(svgs[index])
+      .then(response => response.text())
+      .then(svgText => {
+        container.innerHTML = svgText;
+        const svgElement = container.querySelector('svg');
+        svgElement.id = 'animated-svg';
+        new Vivus('animated-svg', { type: 'delayed', duration: 40 }); 
+        // 40 frames dá mais ou menos 2 segundos de animação (20 fps)
       });
-    }, 2000); // Espera o fade-in acabar
-  };
+  }
+  
+  // Função para avançar
+  function nextSvg() {
+    currentIndex = (currentIndex + 1) % svgs.length;
+    loadSvg(currentIndex);
+  }
+  
+  // Função para voltar
+  function prevSvg() {
+    currentIndex = (currentIndex - 1 + svgs.length) % svgs.length;
+    loadSvg(currentIndex);
+  }
+  
+
+  // Primeiro SVG depois da intro
+  setTimeout(() => {
+    loadSvg(currentIndex);
+  }, 1000); // 5s ou o tempo da sua animação inicial
+  
+  // Botões
+  document.getElementById('next-button').addEventListener('click', () => {
+    nextSvg();
+    resetAutoSlide();
+  });
+  
+  document.getElementById('prev-button').addEventListener('click', () => {
+    prevSvg();
+    resetAutoSlide();
+  });
+  
+
+  // Carrossel automático
+  let autoSlide = setInterval(nextSvg, 5650); // troca a cada 5 segundos
+  
+  function resetAutoSlide() {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextSvg, 5650);
+  }
   

@@ -1,360 +1,455 @@
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  font-family: 'inter', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #eec49b;
-    background-size: cover; /* Ajusta a imagem ao tamanho da tela */
-    background-position: top center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição */
-    transition: background-color 0.3s ease, background-image 0.3s ease; /* Transição suave */
+.circle, .circle2 {
+  position: absolute;
+  top: 27px;
+  right: 32px;
+  border-radius: 9999px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  transform-origin: top right;
+  z-index: 1000;
 }
 
-#top-bar-hack {
+.circle {
+  width: 1px;
+  height: 1px;
+  background: #eec49b;
+}
+
+.circle2 {
+  width: 2000px;
+  height: 2000px;
+  top: -1000px;
+  right: -1000px;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: env(safe-area-inset-top); /* para iPhones com notch */
-  z-index: 9999;
-    background-color: #eec49b;
+  background: rgba(233, 150, 122, 0.95);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 100%;
+  transform: scale(0);
+
+}
+
+.circle2.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.container2 {
+    width: 311px;
+    height: 248px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top:-20%;
   }
   
-  .dark-mode #top-bar-hack {
-    background-color: #242323;
+  .box {
+    width: 216px;
+    height: 248px;
+    left: 95px;
+    top: 0px;
+    position: absolute;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 4px;
+    display: none;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    transition: opacity 0.5s ease; /* Transição suave para a opacidade */
+}
+
+#box-0{
+    display:inline-flex;
+}
+
+.box.visible {
+    display: block; /* Torna a box visível */
+    opacity: 1; /* Define a opacidade para 1 */
+}
+
+.box.hidden {
+    opacity: 0; /* Define a opacidade para 0 */
+}
+  
+  .text {
+    width: 216px;
+    color: #5D2308;
+    font-size: 20px;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .jesus {
+    width: 92px;
+    height: 24px;
+    left: -1px;
+    top: 224px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: inline-flex;
+  }
+  
+  .jesus-text {
+    color: #5D2308;
+    font-size: 20px;
+    font-weight: 600;
+    word-wrap: break-word;
   }
 
-#frase {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 0.6rem;
-  font-weight: 200;
-  letter-spacing: 0.5px;
-  text-align: center;
-  max-width: 90vw; /* Limita a largura a 90% da largura da tela */
-  overflow: hidden; /* Garante que o conteúdo não transborde */
-  white-space: nowrap; /* Evita quebras de linha */
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
-}
+  #jesus-1{
+    display:none;
+  }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    font-family: 'inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eec49b;
+      background-size: cover; /* Ajusta a imagem ao tamanho da tela */
+      background-position: top center; /* Centraliza a imagem */
+      background-repeat: no-repeat; /* Evita repetição */
+      transition: background-color 0.3s ease, background-image 0.3s ease; /* Transição suave */
+  }
+  
+  #top-bar-hack {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: env(safe-area-inset-top); /* para iPhones com notch */
+    z-index: 9999;
+      background-color: #eec49b;
+    }
+    
+    .dark-mode #top-bar-hack {
+      background-color: #242323;
+    }
 
-footer {
-  position: fixed;
-  bottom: 3%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  padding-bottom: env(safe-area-inset-bottom, 20px); /* para iPhones com notch */
-}
-
-.intro {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  font-family: 'Inter', sans-serif;
-}
+    .dark-mode .circle2 {
+      background: rgba(0, 0, 0, 0.95);
+    }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  footer {
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: env(safe-area-inset-bottom, 20px); /* para iPhones com notch */
+    font-size: 0.6rem;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    max-width: 90vw;
+    white-space: nowrap;
+  } 
+  
 
 #content {
   opacity: 0;
   transition: opacity 1s ease-in;
 }
-
-
-.container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-}
-
-.toggle-button {
-  border: none;
-  padding: 10px;
-  border-radius: 50px;
-  cursor: pointer;
-  position: relative;
-  width: 50px;
-  height: 30px;
-  background-color: rgba(33, 33, 33, 0.2); /* mesma cor com transparência */
-  transition: background-color 0.3s;
-}
-
-.icon {
-  opacity: 1;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 5px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  transition: left 0.3s;
-}
-
-.dark-mode .icon {
-  left: 25px;
-}
-
-.dark-mode {
-  background-color: #242323;
-  color: #fff;
-}
-
-.dark-mode .toggle-button {
-  background-color: #444;
-}
-
-.sun-icon,
-.moon-icon {
-  width: 20px;
-  height: 20px;
-  display: none;
-  filter: brightness(0);
-  transition: opacity 0.3s ease;
-}
-
-.sun-icon{
-filter:  invert(1);
-}
-
-/* Modo escuro mostra o sol */
-.dark-mode .sun-icon {
-  display: block;
-}
-
-/* Modo claro mostra a lua */
-.light-mode .moon-icon {
-  display: block;
-}
-
-/* MENU */
-
-/* Botão hambúrguer */
-.hamburger {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 25px;
-  height: 15px;
-  cursor: pointer;
-  z-index: 10001;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.hamburger span {
-  height: 2px;
-  background: #000;
-  transition: 0.3s ease;
-}
-
-/* Modo escuro */
-body.dark-mode .hamburger span {
-  background: #fff;
-}
-
-/* Transformar em X */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Menu full screen */
-.fullscreen-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(233, 150, 122, 0.95);
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  z-index: 10000; /* Acima do botão de menu */
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-100%);  /* Menu começa fora da tela, em cima */
-  transition: transform 0.5s ease, opacity 0.3s ease; /* Transição suave */
-  font-family: monospace;
-
-}
-
-.fullscreen-menu a:hover {
-  color: #632d1b;
-}
-
-body.dark-mode .fullscreen-menu {
-  background: rgba(0, 0, 0, 0.95);
-  color: white;
-}
-
-body.dark-mode .fullscreen-menu a {
-  color: white;
-}
-
-body.dark-mode .fullscreen-menu a:hover {
-  color: #632d1b;
-}
-
-
-.fullscreen-menu ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-.fullscreen-menu li {
-  margin: 20px 0;
-}
-
-.fullscreen-menu a {
-  color: black;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-/* Quando ativo */
-.fullscreen-menu.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);  /* Menu agora vai se mover de cima para baixo */
-
-}
-.fullscreen-menu a.disabled {
-  pointer-events: none; /* Desabilita o clique */
-  color: #9d533a; /* Altera a cor para indicar que o item está desabilitado */
-  cursor: not-allowed; /* Altera o cursor para indicar que não é possível clicar */
-}
-
-/* Caso esteja no modo escuro */
-body.dark-mode .fullscreen-menu a.disabled {
-  color: #7f7f7f; /* Cor mais suave no modo escuro */
-}
-
-.fechadura {
-  position: absolute; /* Permite posicionamento mais controlado */
-  left: 50%; /* Move para o meio da tela */
-  transform: translate(-50%, -50%); /* Centraliza corretamente */
-  max-width: 300px; /* Ajusta o tamanho */
-  height: auto;
-  z-index: 0;
-  top: 52%;
-}
-
-header {
-  position: absolute;
-  top: 0%; /* Ajuste conforme necessário */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-  z-index: 1000; /* Coloca o cabeçalho acima de outros elementos */
-}
-
-.logo {
-  max-width: 30%;
-  height: auto;
-  width: 200px;
-  margin: 0 auto;
-  margin-top: 3%;
-}
-
-.versiculo{
-  position: absolute;
-  top: 25%;
-  left: 10%;
-  width: 80%;
-  max-width: 300px;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 0;
-  rotate: 270deg;
-}
-
-#inicial {
-  margin: 5%;
-  text-align: center;
-  padding: 5%;
-  font-size: 0.8rem;
-  transform: translatey(-130%);
-}
-
-/* Ajuste para telas maiores */
-@media (min-width: 1024px) { 
-  .fechadura {
-    top: 47%; /* Reduz a altura para notebooks */
-    left: 20%;
+  .container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
   }
-  .versiculo {
-    top: 20%; /* Reduz a altura para notebooks */
-    left: 10%;
+  
+  .toggle-button {
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    width: 50px;
+    height: 30px;
+    background-color: rgba(33, 33, 33, 0.2); /* mesma cor com transparência */
+    transition: background-color 0.3s;
   }
-  #inicial {
-    font-size: 1.4rem; /* Aumenta o tamanho da fonte para notebooks */
-    margin: 35%;
-    padding-top: 15%;
-    padding-bottom: 15%;
-    transform: translate(0%,0%);
-  }
-  .hamburger {
-    display: none; /* Esconde o botão hambúrguer */
-  }
-
-  .fullscreen-menu {
+  
+  .icon {
     opacity: 1;
-    pointer-events: auto;
-    width: 33.33vw;
-    height: 100vh;
-    position: fixed;
-    left: 70%;
-    top: 0;
-    z-index: 10000;
-    background: rgba(233, 150, 122, 0.95);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: left 0.3s;
+  }
+  
+  .dark-mode .icon {
+    left: 25px;
+  }
+  
+  .dark-mode, body.dark-mode .circle {
+    background-color: #242323;
+    color: #fff;
+  }
+  
+  .dark-mode .toggle-button {
+    background-color: #444;
+  }
+  
+  .sun-icon,
+  .moon-icon {
+    width: 20px;
+    height: 20px;
+    display: none;
+    filter: brightness(0);
+    transition: opacity 0.3s ease;
+  }
+  
+  .sun-icon{
+  filter:  invert(1);
+  }
+  
+  /* Modo escuro mostra o sol */
+  .dark-mode .sun-icon {
+    display: block;
+  }
+  
+  /* Modo claro mostra a lua */
+  .light-mode .moon-icon {
+    display: block;
+  }
+  
+  /* MENU */
+  
+  /* Botão hambúrguer */
+  .hamburger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 10002;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    transform: none;
+    justify-content: space-between;
   }
-
+  
+  .hamburger span {
+    height: 2px;
+    background: #000;
+    transition: 0.3s ease;
+  }
+  
+  /* Modo escuro */
+  body.dark-mode .hamburger span {
+    background: #fff;
+  }
+  
+  /* Transformar em X */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Menu full screen */
+  .fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background:transparent;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 10000; /* Acima do botão de menu */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);  /* Menu começa fora da tela, em cima */
+    transition: transform 0.5s ease, opacity 0.3s ease; /* Transição suave */
+    font-family: monospace;
+  
+  }
+  
+  .fullscreen-menu a:hover {
+    color: #632d1b;
+  }
+  
+  body.dark-mode .fullscreen-menu {
+    background: transparent;
+    color: white;
+  }
+  
+  body.dark-mode .fullscreen-menu a {
+    color: white;
+  }
+  
+  body.dark-mode .fullscreen-menu a:hover {
+    color: #632d1b;
+  }
+  
+  
   .fullscreen-menu ul {
-    text-align: right;
-    padding-right: 40px;
+    list-style: none;
+    padding: 0;
+    text-align: center;
   }
-
+  
   .fullscreen-menu li {
     margin: 20px 0;
   }
-
-  /* Ajuste no modo escuro */
-  body.dark-mode .fullscreen-menu {
-    background: rgba(0, 0, 0, 0.95);
+  
+  .fullscreen-menu a {
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.2s;
   }
-}
+  
+  /* Quando ativo */
+  .fullscreen-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);  /* Menu agora vai se mover de cima para baixo */
+  
+  }
+  .fullscreen-menu a.disabled {
+    pointer-events: none; /* Desabilita o clique */
+    color: #9d533a; /* Altera a cor para indicar que o item está desabilitado */
+    cursor: not-allowed; /* Altera o cursor para indicar que não é possível clicar */
+  }
+  
+  /* Caso esteja no modo escuro */
+  body.dark-mode .fullscreen-menu a.disabled {
+    color: #7f7f7f; /* Cor mais suave no modo escuro */
+  }
+  
+  header {
+    position: absolute;
+    top: 0%; /* Ajuste conforme necessário */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1000; /* Coloca o cabeçalho acima de outros elementos */
+  }
+  
+  .logo {
+    max-width: 30%;
+    height: auto;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 3%;
+  }
+  
+  .vers{
+    position: fixed;
+    max-width: 300px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    color: black;
 
-body.dark-mode .fechadura, body.dark-mode .logo, body.dark-mode .versiculo {
-  filter: invert(1);
-}
+  }
+  
+  /* Ajuste para telas maiores */
+  @media (min-width: 1024px) { 
+    .vers {
+      top: 30%;
+      left:15%;
+    }
+
+    .hamburger {
+      display: none; /* Esconde o botão hambúrguer */
+    }
+  
+    .fullscreen-menu {
+      opacity: 1;
+      pointer-events: auto;
+      width: 33.33vw;
+      height: 100vh;
+      position: fixed;
+      left: 70%;
+      top: 0;
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transform: none;
+      background: rgba(233, 150, 122, 0.95);
+    }
+  
+    .fullscreen-menu ul {
+      text-align: right;
+      padding-right: 40px;
+    }
+  
+    .fullscreen-menu li {
+      margin: 20px 0;
+    }
+  
+    /* Ajuste no modo escuro */
+    body.dark-mode .fullscreen-menu {
+      background: rgba(0, 0, 0, 0.95);
+    }
+  }
+  
+  body.dark-mode #svg-container, body.dark-mode .logo, body.dark-mode .arrow {
+    filter: invert(1);
+  }
+
+  body.dark-mode .text, body.dark-mode .jesus-text {
+    color:#eec49b;
+  }
+
+  
+  #svg-container {
+      width: 150px; /* ajuste conforme seu layout */
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    #navigation {
+  
+      display: flex;
+      justify-content: center;
+      gap: 150px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    button {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    
+  
