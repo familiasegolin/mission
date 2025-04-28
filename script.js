@@ -159,8 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   const svgs = [
-    'assets/carrossel/sol.svg',
-    'assets/carrossel/pastor.svg',
     'assets/carrossel/porta.svg',
     'assets/carrossel/pedra_angular.svg',
     'assets/carrossel/videira.svg',
@@ -169,6 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/carrossel/raiz.svg',
     'assets/carrossel/caminho.svg',
     'assets/carrossel/pão.svg',
+    'assets/carrossel/sol.svg',
+    'assets/carrossel/pastor.svg'
     // coloque os caminhos dos seus SVGs aqui
   ];
   
@@ -203,25 +203,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Primeiro SVG depois da intro
   setTimeout(() => {
     loadSvg(currentIndex);
-  }, 1000); // 5s ou o tempo da sua animação inicial
-  
-  // Botões
-  document.getElementById('next-button').addEventListener('click', () => {
-    nextSvg();
-    resetAutoSlide();
-  });
-  
-  document.getElementById('prev-button').addEventListener('click', () => {
-    prevSvg();
-    resetAutoSlide();
-  });
-  
+  }, 11300);
 
   // Carrossel automático
-  let autoSlide = setInterval(nextSvg, 5650); // troca a cada 5 segundos
-  
-  function resetAutoSlide() {
-    clearInterval(autoSlide);
-    autoSlide = setInterval(nextSvg, 5650);
-  }
+  let autoSlide; // define fora para ter controle
+
+  // Primeiro SVG depois da intro
+  setTimeout(() => {
+    loadSvg(currentIndex); // carrega o primeiro
+    autoSlide = setInterval(nextSvg, 3000); // só inicia o carrossel depois de carregar o primeiro
+  }, 11300);
   
