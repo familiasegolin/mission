@@ -1,84 +1,77 @@
-
-
 function transitionBoxes() {
-    const boxes = Array.from({ length: 11 }, (_, i) => document.querySelector(`#box-${i}`));
-    const translateYs = Array(boxes.length).fill(0);
-    const opacities = [1, 0.5, 0.4, 0.3, 0.2, 0.15, 0.1, 0.05, 0.01, 0];
-    let currentIndex = 0;
+  const boxes = Array.from({ length: 11 }, (_, i) => document.querySelector(`#box-${i}`));
+  const translateYs = Array(boxes.length).fill(0);
+  const opacities = [1, 0.5, 0.4, 0.3, 0.2, 0.15, 0.1, 0.05, 0.01, 0];
+  let currentIndex = 0;
 
-    function animateNext() {
-        if (currentIndex < boxes.length - 1) {
+  function animateNext() {
+      if (currentIndex < boxes.length - 1) {
 
-            // Troca os jesuss quando estiver indo de box-5 para box-6
-            if (currentIndex === 5) {
-                const jesus0 = document.getElementById('jesus-0');
-                const jesus1 = document.getElementById('jesus-1');
+          if (currentIndex === 5) {
+              const jesus0 = document.getElementById('jesus-0');
+              const jesus1 = document.getElementById('jesus-1');
 
-                jesus0.style.display = 'none';
-                jesus1.style.display = 'inline-flex';
-            }
+              jesus0.style.display = 'none';
+              jesus1.style.display = 'inline-flex';
+          }
 
-            const nextBox = boxes[currentIndex + 1];
+          const nextBox = boxes[currentIndex + 1];
 
-            // Atualiza todas as boxes anteriores (inclusive a atual)
-            for (let i = 0; i <= currentIndex; i++) {
-                translateYs[i] -= 24;
+          for (let i = 0; i <= currentIndex; i++) {
+              translateYs[i] -= 24;
 
-                boxes[i].style.transition = 'transform 1s ease, opacity 1s ease';
-                boxes[i].style.transform = `translateY(${translateYs[i]}px)`;
+              boxes[i].style.transition = 'transform 1s ease, opacity 1s ease';
+              boxes[i].style.transform = `translateY(${translateYs[i]}px)`;
 
-                const distanceFromCurrent = currentIndex - i + 1;
-                const newOpacity = opacities[distanceFromCurrent] ?? 0;
+              const distanceFromCurrent = currentIndex - i + 1;
+              const newOpacity = opacities[distanceFromCurrent] ?? 0;
 
-                boxes[i].style.opacity = newOpacity.toString();
+              boxes[i].style.opacity = newOpacity.toString();
 
-                if (newOpacity <= 0.01) {
-                    boxes[i].classList.remove('visible');
-                    boxes[i].classList.add('hidden');
-                }
-            }
+              if (newOpacity <= 0.01) {
+                  boxes[i].classList.remove('visible');
+                  boxes[i].classList.add('hidden');
+              }
+          }
 
-            // Prepara a nova box
-            nextBox.style.transition = 'transform 1s ease, opacity 1s ease';
-            nextBox.style.transform = 'translateY(10px)';
-            nextBox.style.opacity = '0';
-            nextBox.classList.remove('hidden');
-            nextBox.classList.add('visible');
+          nextBox.style.transition = 'transform 1s ease, opacity 1s ease';
+          nextBox.style.transform = 'translateY(10px)';
+          nextBox.style.opacity = '0';
+          nextBox.classList.remove('hidden');
+          nextBox.classList.add('visible');
 
-            setTimeout(() => {
-                nextBox.style.transform = 'translateY(0px)';
-                nextBox.style.opacity = '1';
-            }, 0);
+          setTimeout(() => {
+              nextBox.style.transform = 'translateY(0px)';
+              nextBox.style.opacity = '1';
+          }, 0);
 
-            boxes[currentIndex].addEventListener('transitionend', function handler() {
-                boxes[currentIndex].removeEventListener('transitionend', handler);
-                currentIndex++;
-                animateNext();
-            });
-        } else {
-            // Após a última box, faz tudo desaparecer após 1 segundos
-            setTimeout(() => {
-                // Faz todas as boxes desaparecerem com fade
-                boxes.forEach(box => {
-                    box.style.transition = 'opacity 1s ease'; // Adiciona o tempo de transição de opacidade
-                    box.style.opacity = '0';
-                });
+          // Em vez de esperar "transitionend", só espera 1 segundo para seguir
+          setTimeout(() => {
+              currentIndex++;
+              animateNext();
+          }, 1000); // ⚡ MESMO tempo que sua animação leva
+      } else {
+          setTimeout(() => {
+              boxes.forEach(box => {
+                  box.style.transition = 'opacity 1s ease';
+                  box.style.opacity = '0';
+              });
 
-                const jesus0 = document.getElementById('jesus-0');
-                const jesus1 = document.getElementById('jesus-1');
+              const jesus0 = document.getElementById('jesus-0');
+              const jesus1 = document.getElementById('jesus-1');
 
-                // Adiciona o tempo de transição de opacidade no jesus
-                jesus0.style.transition = 'opacity 1s ease';
-                jesus1.style.transition = 'opacity 1s ease';
+              jesus0.style.transition = 'opacity 1s ease';
+              jesus1.style.transition = 'opacity 1s ease';
 
-                jesus0.style.opacity = '0';
-                jesus1.style.opacity = '0';
-            }, 1000); // Espera 1 segundo (tempo total de animação + 1 segundo extra)
-        }
-    }
+              jesus0.style.opacity = '0';
+              jesus1.style.opacity = '0';
+          }, 1000);
+      }
+  }
 
-    animateNext();
+  animateNext();
 }
+
 
 transitionBoxes();
 
@@ -193,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 40 frames dá mais ou menos 2 segundos de animação (20 fps)
       });
   }
-  
+
   // Função para avançar
   function nextSvg() {
     currentIndex = (currentIndex + 1) % svgs.length;
