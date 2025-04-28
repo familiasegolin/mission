@@ -98,7 +98,6 @@
     font-weight: 600;
     word-wrap: break-word;
     margin-bottom: -3px;
-    margin-left: 5px;
   }
 
   #jesus-1{
@@ -412,6 +411,10 @@
     /* Ajuste no modo escuro */
     body.dark-mode .fullscreen-menu {
       background: rgba(0, 0, 0, 0.95);
+    }
+
+    .jesus-text{
+      margin-left: 5px;
     }
   }
   
