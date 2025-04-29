@@ -214,3 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
     autoSlide = setInterval(nextSvg, 3000); // só inicia o carrossel depois de carregar o primeiro
   }, 11300);
   
+  const currentPath = window.location.pathname; 
+const menuItems = document.querySelectorAll('.fullscreen-menu a');
+
+menuItems.forEach(item => {
+  const itemHref = item.getAttribute('href');
+  if (currentPath.includes(itemHref)) {
+    item.classList.add('disabled'); 
+  } else {
+    item.classList.remove('disabled');
+  }
+});
+
